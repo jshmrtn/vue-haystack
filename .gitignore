@@ -1,0 +1,17 @@
+/.tmp/
+/node_modules/
+dist
+distDocs
+npm-debug.log
+manifest.json
+*.DS_Store
+*~
+.*.swp
+.*.pid
+*.mo
+
+.tm_properties
+.idea/
+
+docs/.vuepress/.cache
+docs/.vuepress/.temp

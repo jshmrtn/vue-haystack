@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "esnext",
+    "sourceMap": false,
+    "strict": true,
+    "strictNullChecks": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "rootDir": "."
+  },
+  "exclude": ["node_modules", "**/node_modules/*"],
+  "include": ["src/**/*", "docs/**/*"]
+}
