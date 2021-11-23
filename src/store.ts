@@ -31,7 +31,7 @@ export interface ModalCallbacks {
   cancelled: () => Promise<void>;
 }
 
-const createModalStoreInstance = () => {
+const createModalStoreInstance = <CBase extends ComponentBaseType>(defaultComponent?: CBase) => {
   const modals = ref([] as ModalConfig[]);
 
   const close = (modalId: ModalConfig["id"]) => {
@@ -46,7 +46,6 @@ const createModalStoreInstance = () => {
    * @param component The modal component
    * @param props Props to pass to the modal component
    * @param options Additional options to configure the modal behavior
-   * @returns
    */
   const show = <T extends ComponentBaseType>(
     component: T,
@@ -98,10 +97,23 @@ const createModalStoreInstance = () => {
     return res;
   };
 
+  /**
+   * Show the default modal
+   * @param props Props to pass to the modal component
+   * @param options Additional options to configure the modal behavior
+   */
+  const showDefault = (props: InstanceType<CBase>["$props"] | null = null, options: ModalConfig["options"] = null) => {
+    if (!defaultComponent) {
+      throw new Error("No default component passed to the modal store, cannot show modal.");
+    }
+    return show(defaultComponent, props, options);
+  };
+
   const store = {
     modals,
     close,
     show,
+    showDefault,
   };
 
   return store;
@@ -111,11 +123,14 @@ export type ModalStore = ReturnType<typeof createModalStoreInstance>;
 
 const ModalStoreSymbol = Symbol("modalstore");
 
-/** Create a modal store. Call this in your main file: `app.use(createModalStore())` */
-export const createModalStore = () => {
+/**
+ * Create a modal store. Call this in your main file: `app.use(createModalStore())`
+ * @param defaultComponent The default modal component, used when calling store.showDefault(...)
+ */
+export const createModalStore = <CBase extends ComponentBaseType>(defaultComponent?: CBase) => {
   return {
     install(app: App) {
-      const store = createModalStoreInstance();
+      const store = createModalStoreInstance(defaultComponent);
       app.provide(ModalStoreSymbol, store);
     },
   };
