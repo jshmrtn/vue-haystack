@@ -11,7 +11,12 @@
           </slot>
         </div>
         <slot :modal="modal">
-          <component :is="modal.component" :class="$style.modal" v-bind="modal.props" />
+          <component
+            :is="modal.component"
+            v-show="modal.id === activeModal?.id"
+            :class="$style.modal"
+            v-bind="modal.props"
+          />
         </slot>
       </ModalProvider>
     </div>
@@ -87,7 +92,10 @@ export default defineComponent({
   }
 
   .modal {
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
   }
 }
 </style>

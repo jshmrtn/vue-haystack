@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <slot :modal="modal" />
-  </div>
+  <slot :modal="modal" />
 </template>
 
 <script lang="ts">
