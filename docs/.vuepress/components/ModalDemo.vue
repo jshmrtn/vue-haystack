@@ -7,7 +7,8 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { useModalStore, ModalContainer } from "../../../src";
+import { ModalContainer, useModalStore } from "../../../src";
+import { useAlertStore } from "../demo/demoAlertStore";
 import DemoModal from "./DemoModal.vue";
 
 export default defineComponent({
@@ -16,7 +17,16 @@ export default defineComponent({
   props: {},
   setup: (_props) => {
     const modalStore = useModalStore();
-    const showModal = () => modalStore.show(DemoModal, { foo: "bar" }).onClose((data) => console.log(data));
+    const showModal = () =>
+      modalStore
+        .push(DemoModal, { foo: "asdf" }, { log: (text: string) => console.log(text) }, { closeOnOverlayClick: true })
+        .onClose((data) => console.log(data));
+
+    useAlertStore()
+      .push(DemoModal)
+      .onClose(() => {
+        console.log("CLOSED");
+      });
 
     return { showModal };
   },

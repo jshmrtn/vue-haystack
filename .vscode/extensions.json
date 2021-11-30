@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "johnsoncodehk.vscode-typescript-vue-plugin",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "johnsoncodehk.volar",
+    "syler.sass-indented"
+  ]
+}

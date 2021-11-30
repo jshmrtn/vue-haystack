@@ -4,11 +4,15 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ["plugin:vue/vue3-recommended", "@vue/prettier", "@vue/typescript", "prettier", "prettier/vue"],
+  extends: ["plugin:vue/vue3-recommended", "@vue/typescript", "@vue/prettier", "prettier"],
+  parser: "vue-eslint-parser",
   parserOptions: {
-    ecmaVersion: 12,
     parser: "@typescript-eslint/parser",
+    ecmaVersion: "latest",
     sourceType: "module",
   },
   plugins: ["vue", "@typescript-eslint"],
+  rules: {
+    "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
+  },
 };

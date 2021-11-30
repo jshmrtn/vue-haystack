@@ -1,28 +1,30 @@
-import { App, ComponentPropsOptions, inject, markRaw, provide, Ref, ref } from "vue";
 import { v4 as uuidv4 } from "uuid";
+import { App, ComponentPropsOptions, inject, markRaw, provide, Ref, ref } from "vue";
 
 type ComponentBaseType = abstract new (...args: any) => any;
 
-export interface ItemBase {
+export interface ItemBase<OptionsType> {
   /** The unique item id. Automatically generated */
   readonly id: string;
   /** The item component type, can be used with `<component :is="item.component" />` */
   component: InstanceType<ComponentBaseType>;
   /** The props that are passed to the component */
   props: ComponentPropsOptions | null;
-  options: {} | null;
+  /** The props that are passed to the component */
+  listeners: { [key: string]: (...params: never) => never };
+  options: OptionsType | null;
 }
 
 export const createItemStoreInstance = <
   CBase extends ComponentBaseType,
-  I extends ItemBase,
-  Res extends { [key: string]: any }
+  I extends ItemBase<O>,
+  Res extends { [key: string]: unknown },
+  O extends { [key: string]: unknown } | null,
+  Extend extends { [key: string]: unknown },
 >(
-  createItem: (item: ItemBase) => { item: I; useReturn?: Res },
-
-  // enhanceItem: (item: ItemBase) => I,
-  // getItemReturn: (item: I) => Res,
-  defaultComponent?: CBase
+  createItem: (item: ItemBase<O>) => { item: I; useReturn: Res },
+  extendStore: (items: Ref<I[]>) => Extend = () => ({} as Extend),
+  defaultComponent?: CBase,
 ) => {
   const items = ref<I[]>([]) as Ref<I[]>;
 
@@ -41,16 +43,16 @@ export const createItemStoreInstance = <
    */
   const push = <T extends ComponentBaseType>(
     component: T,
-    props: InstanceType<T>["$props"] | null = null,
-    options: I["options"] = null
+    props?: InstanceType<T>["$props"],
+    listeners?: InstanceType<T>["$emits"],
+    options?: I["options"],
   ) => {
     const { item, useReturn } = createItem({
       id: uuidv4(),
       component: markRaw(component),
-      props,
-      options: {
-        ...options,
-      },
+      props: props || {},
+      listeners: listeners || {},
+      options: options || null,
     });
     items.value.push(item);
 
@@ -62,18 +64,23 @@ export const createItemStoreInstance = <
    * @param props Props to pass to the component
    * @param options Additional options to configure the item behavior
    */
-  const pushDefault = (props: InstanceType<CBase>["$props"] | null = null, options: I["options"] = null) => {
+  const pushDefault = (props: InstanceType<CBase>["$props"] | null = null, options?: I["options"]) => {
     if (!defaultComponent) {
       throw new Error("No default component passed to the item store, cannot show item.");
     }
     return push(defaultComponent, props, options);
   };
 
-  const store = {
+  const rawStore = {
     items,
     remove,
     push,
     pushDefault,
+  };
+
+  const store: typeof rawStore & Extend = {
+    ...rawStore,
+    ...extendStore(items),
   };
 
   const GenericStoreSymbol = Symbol("genericstore");

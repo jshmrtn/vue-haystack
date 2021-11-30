@@ -1,7 +1,7 @@
 ---
 home: true
 heroText: Vue Modal System
-tagline: Translate your Vue 3 applications with Gettext
+tagline:
 actions:
   - text: Quick Start
     link: /#quick-start
@@ -15,7 +15,7 @@ footer: MIT Licensed | Copyright © 2021-present JOSHMARTIN GmbH
 npm i vue-modal-system
 ```
 
-Import and add the `ModalContainer` in your `App.vue` (or a different component that is rendered when modals are needed):
+Import and add the `ModalContainer` in your `App.vue`:
 
 ```ts
 import { ModalContainer } from "vue-modal-system";

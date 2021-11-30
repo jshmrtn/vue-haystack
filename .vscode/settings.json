@@ -1,0 +1,61 @@
+{
+  // ----------------------------------------
+  // FILES
+  // ----------------------------------------
+  "files.associations": {
+    "*.vue": "vue"
+  },
+  // ----------------------------------------
+  // EDITOR FORMATTER MAPPING
+  // ----------------------------------------
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // ----------------------------------------
+  // ESLINT
+  // ----------------------------------------
+  "eslint.enable": true,
+  "eslint.packageManager": "npm",
+  "eslint.alwaysShowStatus": true,
+  "eslint.lintTask.enable": true,
+  "eslint.useESLintClass": true,
+  "eslint.options": {
+    "extensions": [".html", ".js", ".ts", ".vue", ".json"]
+  },
+  "eslint.validate": ["javascript", "vue", "typescript"],
+  // ----------------------------------------
+  // PRETTIER
+  // ----------------------------------------
+  // "prettier.requireConfig": true,
+  // ----------------------------------------
+  // SCSS SUPPORT
+  // ----------------------------------------
+  "css.validate": true,
+  "scss.validate": true,
+  // ----------------------------------------
+  // TYPESCRIPT
+  // ----------------------------------------
+  "typescript.tsdk": "node_modules/typescript/lib",
+  // ----------------------------------------
+  // FORMATTING
+  // ----------------------------------------
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.organizeImports": true
+  },
+  // ----------------------------------------
+  // VOLAR
+  // ----------------------------------------
+  "volar.codeLens.scriptSetupTools": true,
+  "volar.codeLens.pugTools": false,
+  "volar.icon.finder": true,
+  "volar.icon.preview": true,
+  "volar.completion.autoImportComponent": true,
+  "volar.codeLens.references": true,
+  "volar.completion.preferredTagNameCase": "auto",
+  "volar.completion.preferredAttrNameCase": "auto-kebab",
+  "volar-api.trace.server": "verbose",
+  "volar-document.trace.server": "verbose"
+}

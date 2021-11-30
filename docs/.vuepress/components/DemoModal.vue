@@ -4,6 +4,7 @@
     <p>
       foo: <b>{{ foo }}</b>
     </p>
+    <button @click="emitLog">Log</button>
     <button @click="showModal">asdf</button>
     <button @click="close">Close</button>
   </div>
@@ -11,7 +12,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { useModalStore, useModal } from "../../../src";
+import { useModal, useModalStore } from "../../../src";
 import DemoModal from "./DemoModal.vue";
 
 export default defineComponent({
@@ -23,16 +24,21 @@ export default defineComponent({
       required: true,
     },
   },
-  setup: (props) => {
+  emits: ["log"],
+  setup: (props, ctx) => {
     const modalStore = useModalStore();
     const modal = useModal();
     const showModal = () =>
-      modalStore.show(DemoModal, { foo: "asdfa sdfa sdfasdasdf asdf asdf asdf asdf asdfasdfasdff" });
+      modalStore.push(DemoModal, { foo: "asdfa sdfa sdfasdasdf asdf asdf asdf asdf asdfasdfasdff" }, {});
+
+    const emitLog = () => {
+      ctx.emit("log", props.foo);
+    };
 
     const close = () => {
-      modal.close({ data: props.foo });
+      modal.close<{ data: string }>({ data: props.foo });
     };
-    return { close, showModal };
+    return { close, showModal, emitLog };
   },
 });
 </script>

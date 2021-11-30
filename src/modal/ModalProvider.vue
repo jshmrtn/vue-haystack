@@ -1,23 +1,23 @@
 <template>
-  <slot :modal="modal" />
+  <slot :modal="item" />
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { ModalConfig, provideModal } from "./store";
+import { provideModal, useModal } from ".";
 
 export default defineComponent({
   name: "ModalProvider",
   components: {},
   props: {
     modal: {
-      type: Object as PropType<ModalConfig>,
+      type: Object as PropType<ReturnType<typeof useModal>>,
       required: true,
     },
   },
   setup: (props) => {
-    const modal = provideModal(props.modal);
-    return { modal };
+    const item = provideModal(props.modal);
+    return { item };
   },
 });
 </script>
