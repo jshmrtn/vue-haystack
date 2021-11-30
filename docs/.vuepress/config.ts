@@ -1,17 +1,16 @@
 import path from "path";
-
 import type { DefaultThemeOptions } from "vuepress";
 import { defineUserConfig } from "vuepress";
 
 export default defineUserConfig<DefaultThemeOptions>({
-  base: "/vue-modal-system/",
+  base: "/vue-haystack/",
   port: 3000,
   lang: "en-US",
-  title: "Vue 3 Gettext",
+  title: "Vue Haystack 🧱",
   bundler: "@vuepress/vite",
   clientAppEnhanceFiles: [path.resolve(__dirname, "./enhanceAppFile.ts")],
   themeConfig: {
-    repo: "https://github.com/jshmrtn/vue-modal-system",
+    repo: "https://github.com/jshmrtn/vue-haystack",
     navbar: [],
     locales: {
       "/": {

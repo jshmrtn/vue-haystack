@@ -1,5 +1,5 @@
-import * as path from "path";
 import vue from "@vitejs/plugin-vue";
+import * as path from "path";
 import { defineConfig } from "vite";
 
 export default defineConfig({
@@ -8,8 +8,8 @@ export default defineConfig({
     lib: {
       formats: ["cjs", "es"],
       entry: path.resolve(__dirname, "src/index.ts"),
-      name: "vue-modal-system",
-      fileName: (format) => `vue-modal-system.${format}.js`,
+      name: "vue-haystack",
+      fileName: (format) => `vue-haystack.${format}.js`,
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled

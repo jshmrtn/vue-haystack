@@ -1,7 +1,7 @@
 {
-  "name": "vue-modal-system",
+  "name": "vue-haystack",
   "version": "1.0.0",
-  "description": "Generic modal system using your own modal components",
+  "description": "Lightweight, flexible system for modal dialogs, snackbars, toasts, ...",
   "scripts": {
     "docs": "vuepress dev docs",
     "docs:build": "vuepress build docs -d distDocs",
@@ -12,10 +12,13 @@
     "test:lint": "eslint ./ --ext .vue,.ts"
   },
   "keywords": [
+    "haystack",
     "vue",
     "vue3",
     "modal",
-    "popup"
+    "popup",
+    "snackbar",
+    "toast"
   ],
   "author": "Leo Zurbriggen",
   "license": "MIT",

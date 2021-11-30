@@ -1,1 +1,1 @@
-# vue-modal-system
+# vue-haystack
