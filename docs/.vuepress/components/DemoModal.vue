@@ -5,7 +5,7 @@
       foo: <b>{{ foo }}</b>
     </p>
     <button @click="emitLog">Log</button>
-    <button @click="showModal">asdf</button>
+    <button @click="showModal">Open inner modal</button>
     <button @click="close">Close</button>
   </div>
 </template>
@@ -28,8 +28,7 @@ export default defineComponent({
   setup: (props, ctx) => {
     const modalStore = useModalStore();
     const modal = useModal();
-    const showModal = () =>
-      modalStore.push(DemoModal, { foo: "asdfa sdfa sdfasdasdf asdf asdf asdf asdf asdfasdfasdff" }, {});
+    const showModal = () => modalStore.push(DemoModal, { foo: "Inner modal" }, {});
 
     const emitLog = () => {
       ctx.emit("log", props.foo);

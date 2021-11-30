@@ -19,7 +19,12 @@ export default defineComponent({
     const modalStore = useModalStore();
     const showModal = () =>
       modalStore
-        .push(DemoModal, { foo: "asdf" }, { log: (text: string) => console.log(text) }, { closeOnOverlayClick: true })
+        .push(
+          DemoModal,
+          { foo: "Modal content" },
+          { log: (text: string) => console.log(text) },
+          { closeOnOverlayClick: true },
+        )
         .onClose((data) => console.log(data));
 
     useAlertStore()
