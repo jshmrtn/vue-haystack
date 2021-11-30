@@ -22,9 +22,9 @@
   ],
   "author": "Leo Zurbriggen",
   "license": "MIT",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.mjs",
-  "types": "dist/types/index.d.ts",
+  "main": "dist/vue-haystack.es.js",
+  "module": "dist/vue-haystack.cjs.js",
+  "types": "dist/src/types/index.d.ts",
   "files": [
     "dist",
     "LICENSE",
@@ -34,8 +34,6 @@
     "vue": ">= 3.0.0"
   },
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^13.0.6",
-    "@rollup/plugin-typescript": "^8.3.0",
     "@types/uuid": "^8.3.1",
     "@typescript-eslint/eslint-plugin": "^5.5.0",
     "@typescript-eslint/parser": "^5.5.0",
@@ -50,12 +48,11 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.1.1",
     "prettier": "^2.5.0",
-    "rollup": "^2.59.0",
-    "rollup-plugin-dts": "^4.0.1",
     "ts-node": "^10.4.0",
     "tslib": "^2.3.1",
     "typescript": "^4.4.4",
     "vite": "^2.6.14",
+    "vite-plugin-dts": "^0.9.6",
     "vue": "^3.2.21",
     "vuepress": "^2.0.0-beta.27"
   },
