@@ -1,46 +1,37 @@
 <template>
-  <div>
-    <div :class="$style.modalContainer">
-      <ModalProvider v-for="modal in modals" :key="modal.id" :modal="modal">
-        <div
-          v-show="modal.id === activeModal?.id"
-          :class="[$style.overlay, { [$style.clickable]: modal.options?.closeOnOverlayClick }]"
-          @click="overlayClick(modal)"
-        >
-          <slot name="overlay">
-            <div :class="$style.layer"></div>
-          </slot>
-        </div>
-        <slot :modal="modal" :active-modal="activeModal">
-          <component
-            :is="modal.component"
-            v-show="modal.id === activeModal?.id"
-            :key="modal.id"
-            :class="$style.modal"
-            v-bind="modal.props"
-            v-on="modal.listeners"
-          />
+  <div :class="$style.modalContainer">
+    <ModalProvider v-for="modal in modals" :key="modal.id" :modal="modal">
+      <div
+        v-show="modal.id === activeModal?.id"
+        :class="[$style.overlay, { [$style.clickable]: modal.options?.closeOnOverlayClick }]"
+        @click="overlayClick(modal)"
+      >
+        <slot name="overlay">
+          <div :class="$style.layer"></div>
         </slot>
-      </ModalProvider>
-    </div>
+      </div>
+      <slot :modal="modal" :active-modal="activeModal">
+        <component
+          :is="modal.component"
+          v-show="true || modal.id === activeModal?.id"
+          :key="modal.id"
+          :class="$style.modal"
+          v-bind="modal.props"
+          v-on="modal.listeners"
+        />
+      </slot>
+    </ModalProvider>
   </div>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent } from "vue";
-import { useModal } from ".";
-import { useModalStore } from "./";
 import ModalProvider from "./ModalProvider.vue";
+import { useModal, useModalStore } from "./store";
 
 export default defineComponent({
   name: "ModalContainer",
   components: { ModalProvider },
-  props: {
-    showOverlay: {
-      type: Boolean,
-      default: true,
-    },
-  },
   setup: (_props) => {
     const modalStore = useModalStore();
 

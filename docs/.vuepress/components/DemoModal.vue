@@ -28,7 +28,7 @@ export default defineComponent({
   setup: (props, ctx) => {
     const modalStore = useModalStore();
     const modal = useModal();
-    const showModal = () => modalStore.push(DemoModal, { foo: "Inner modal" }, {});
+    const showModal = () => modalStore.push(DemoModal, { foo: "Inner modal" });
 
     const emitLog = () => {
       ctx.emit("log", props.foo);

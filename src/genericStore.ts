@@ -30,9 +30,11 @@ export const createItemStoreInstance = <
 
   const remove = (itemId: I["id"]) => {
     const index = items.value.findIndex((item) => item.id === itemId);
-    if (index !== -1) {
-      items.value.splice(index, 1);
+    if (index === -1) {
+      console.warn(`Failed to remove item from store: Item with id ${itemId} not found`);
+      return;
     }
+    items.value.splice(index, 1);
   };
 
   /**

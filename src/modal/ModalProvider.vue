@@ -1,10 +1,12 @@
 <template>
-  <slot :modal="item" />
+  <div>
+    <slot :modal="item" />
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { provideModal, useModal } from ".";
+import { provideModal, useModal } from "./store";
 
 export default defineComponent({
   name: "ModalProvider",
