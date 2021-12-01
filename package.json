@@ -24,7 +24,7 @@
   "license": "MIT",
   "main": "dist/vue-haystack.es.js",
   "module": "dist/vue-haystack.cjs.js",
-  "types": "dist/src/types/index.d.ts",
+  "types": "dist/src/index.d.ts",
   "files": [
     "dist",
     "LICENSE",
