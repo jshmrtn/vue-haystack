@@ -5,6 +5,7 @@ import ModalDemo from "./components/ModalDemo.vue";
 
 export default ({ app }: { app: App }) => {
   app.component("ModalContainer", ModalContainer);
+
   app.component("DemoModal", DemoModal);
   app.component("ModalDemo", ModalDemo);
 };

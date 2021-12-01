@@ -13,7 +13,7 @@
       <slot :modal="modal" :active-modal="activeModal">
         <component
           :is="modal.component"
-          v-show="true || modal.id === activeModal?.id"
+          v-show="modal.id === activeModal?.id"
           :key="modal.id"
           :class="$style.modal"
           v-bind="modal.props"

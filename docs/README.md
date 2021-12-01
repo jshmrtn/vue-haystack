@@ -3,11 +3,25 @@ home: true
 heroText: Vue Haystack 🧱
 tagline: Lightweight and flexible system for modal dialogs, snackbars, toasts, ...
 actions:
-  - text: Quick Start
-    link: /#quick-start
+  - text: Modals
+    link: /modal
     type: primary
+  - text: Generic store
+    link: /generic
+    type: primary
+features:
+  - title: Easy setup
+    details: You will be ready to use the predefined systems in seconds.
+  - title: Flexible
+    details: Use your own components and maintain full control over the looks and functionality of your system.
+  - title: Extensible
+    details: A generic store allows you to easily implement your own systems
 footer: MIT Licensed | Copyright © 2021-present JOSHMARTIN GmbH
 ---
+
+<div class="alert">
+This is an early version, only the modal system is ready to use and documented
+</div>
 
 ## Quick start using the modal store
 
@@ -15,38 +29,8 @@ footer: MIT Licensed | Copyright © 2021-present JOSHMARTIN GmbH
 npm i vue-haystack
 ```
 
-Provide the store in your `main.ts` file:
+Import the styles (e.g. in your `App.vue`):
 
 ```ts
-import { createApp } from "vue";
-import { provideModalStore } from "vue-haystack";
-
-const app = createApp();
-provideModalStore(app);
+import "vue-haystack/dist/style.css";
 ```
-
-Import and add the `ModalContainer` in your `App.vue`:
-
-```ts
-import { ModalContainer } from "vue-haystack";
-```
-
-```vue
-<template>
-  <div>
-    <router-view />
-    <ModalContainer />
-  </div>
-</template>
-```
-
-Create your modal component and let the modal service render it:
-
-```ts
-import { useModalStore } from "vue-haystack";
-import MyModalComponent from "./MyModalComponent.vue";
-
-useModalStore().show(MyModalComponent, { foo: "bar" });
-```
-
-<ModalDemo style="margin: 2rem 0 2rem 0;" />

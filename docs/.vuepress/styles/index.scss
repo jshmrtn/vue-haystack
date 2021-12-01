@@ -1,0 +1,32 @@
+button {
+  cursor: pointer;
+  appearance: none;
+  border: none;
+  border-radius: 3px;
+  background-color: var(--c-brand);
+  color: var(--c-bg);
+  padding: 0.8rem 1.6rem;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color var(--t-color);
+
+  &:hover {
+    background-color: var(--c-brand-light);
+  }
+}
+
+.alert {
+  padding: 0.8rem 1.6rem;
+  background: var(--c-warning-bg);
+  color: var(--c-warning);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+
+  &::before {
+    content: "⚠️";
+    font-size: 2rem;
+    margin-right: 1rem;
+  }
+}

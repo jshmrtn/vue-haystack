@@ -8,7 +8,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { ModalContainer, useModalStore } from "../../../src";
-import { useAlertStore } from "../demo/demoAlertStore";
 import DemoModal from "./DemoModal.vue";
 
 export default defineComponent({
@@ -22,34 +21,14 @@ export default defineComponent({
         .push(
           DemoModal,
           { foo: "Modal content" },
-          { log: (text: string) => console.log(text) },
+          { log: (text: string) => console.log("log emittet", text) },
           { closeOnOverlayClick: true },
         )
-        .onClose<string>((data) => console.log(data));
-
-    useAlertStore()
-      .push(DemoModal)
-      .onClose(() => {
-        console.log("CLOSED");
-      });
+        .onClose<string>((data) => console.log("onClose", data));
 
     return { showModal };
   },
 });
 </script>
 
-<style module lang="scss">
-button {
-  cursor: pointer;
-  appearance: none;
-  border: none;
-  border-radius: 3px;
-  background-color: var(--c-brand);
-  color: var(--c-bg);
-  padding: 0.8rem 1.6rem;
-  font-family: var(--font-family);
-  font-size: 1rem;
-  font-weight: 500;
-  transition: background-color var(--t-color);
-}
-</style>
+<style module lang="scss"></style>

@@ -22,6 +22,14 @@ export default defineUserConfig<DefaultThemeOptions>({
         text: "Home",
         link: "/README.md",
       },
+      {
+        text: "Modals",
+        link: "/modal.md",
+      },
+      {
+        text: "Generic store",
+        link: "/generic.md",
+      },
     ],
   },
 });
