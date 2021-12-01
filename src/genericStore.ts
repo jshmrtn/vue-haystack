@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-import { App, ComponentPropsOptions, inject, markRaw, provide, Ref, ref } from "vue";
+import { ComponentPropsOptions, inject, markRaw, provide, Ref, ref } from "vue";
 
 type ComponentBaseType = abstract new (...args: any) => any;
 
@@ -83,15 +83,8 @@ export const createItemStoreInstance = <
     ...extendStore(items),
   };
 
-  const GenericStoreSymbol = Symbol("genericstore");
-
-  const provideStore = (app?: App) => {
-    app ? app.provide(GenericStoreSymbol, store) : provide(GenericStoreSymbol, store);
-    return store;
-  };
-
   const useStore = () => {
-    return inject(GenericStoreSymbol) as typeof store;
+    return store;
   };
 
   const ItemSymbol = Symbol("item");
@@ -108,7 +101,6 @@ export const createItemStoreInstance = <
   return {
     store,
     useStore,
-    provideStore,
     useItem,
     provideItem,
   };

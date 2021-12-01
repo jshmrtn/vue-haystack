@@ -2,7 +2,6 @@ import { createItemStoreInstance } from "../../../src/genericStore";
 
 export const {
   useStore: useAlertStore,
-  provideStore: provideAlertStore,
   useItem: useAlert,
   provideItem: provideAlert,
 } = createItemStoreInstance((base) => {

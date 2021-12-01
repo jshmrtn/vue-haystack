@@ -25,7 +25,7 @@ export default defineComponent({
           { log: (text: string) => console.log(text) },
           { closeOnOverlayClick: true },
         )
-        .onClose((data) => console.log(data));
+        .onClose<string>((data) => console.log(data));
 
     useAlertStore()
       .push(DemoModal)
