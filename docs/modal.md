@@ -6,7 +6,7 @@ The modal store will display your own components as modal dialogs.
 
 ## Modal container
 
-Import the styles and add the `ModalContainer` in your `App.vue`:
+Import and add the `ModalContainer` in your `App.vue`:
 
 ```ts
 import { ModalContainer } from "vue-haystack";

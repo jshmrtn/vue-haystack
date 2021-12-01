@@ -2,6 +2,13 @@
   "name": "vue-haystack",
   "version": "1.0.0-beta.1",
   "description": "Lightweight, flexible system for modal dialogs, snackbars, toasts, ...",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jshmrtn/vue-haystack"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "scripts": {
     "docs": "vuepress dev docs",
     "docs:build": "vuepress build docs -d distDocs",
@@ -22,6 +29,10 @@
   ],
   "author": "Leo Zurbriggen",
   "license": "MIT",
+  "exports": {
+    "require": "./dist/vue-haystack.cjs.js",
+    "import": "./dist/vue-haystack.es.js"
+  },
   "main": "dist/vue-haystack.es.js",
   "module": "dist/vue-haystack.cjs.js",
   "types": "dist/src/index.d.ts",

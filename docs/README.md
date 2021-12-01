@@ -23,7 +23,7 @@ footer: MIT Licensed | Copyright © 2021-present JOSHMARTIN GmbH
 This is an early version, only the modal system is ready to use and documented
 </div>
 
-## Quick start using the modal store
+## Installation
 
 ```sh
 npm i vue-haystack
