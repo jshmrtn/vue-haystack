@@ -1,6 +1,6 @@
 {
   "name": "vue-haystack",
-  "version": "1.0.0-alpha.5",
+  "version": "1.0.0-beta.1",
   "description": "Lightweight, flexible system for modal dialogs, snackbars, toasts, ...",
   "scripts": {
     "docs": "vuepress dev docs",
