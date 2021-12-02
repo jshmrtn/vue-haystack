@@ -6,6 +6,9 @@ actions:
   - text: Modals
     link: /modal
     type: primary
+  - text: Snackbar
+    link: /snackbar
+    type: primary
   - text: Generic store
     link: /generic
     type: primary
