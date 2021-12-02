@@ -1,6 +1,6 @@
 {
   "name": "vue-haystack",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0-beta.3",
   "description": "Lightweight, flexible system for modal dialogs, snackbars, toasts, ...",
   "repository": {
     "type": "git",
