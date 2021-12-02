@@ -27,6 +27,10 @@ export default defineUserConfig<DefaultThemeOptions>({
         link: "/modal.md",
       },
       {
+        text: "Snackbar",
+        link: "/snackbar.md",
+      },
+      {
         text: "Generic store",
         link: "/generic.md",
       },

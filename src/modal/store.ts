@@ -34,8 +34,7 @@ const store = createItemStoreInstance(
   (items) => {
     return {
       activeModal: computed(() => {
-        // return items.value.slice(-1)[0] || null;
-        return items.value.length > 0 ? items.value[items.value.length - 1] : null;
+        return items.value.slice(-1)[0] || null;
       }),
     };
   },
