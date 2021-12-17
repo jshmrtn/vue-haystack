@@ -30,8 +30,11 @@
   "author": "Leo Zurbriggen",
   "license": "MIT",
   "exports": {
-    "require": "./dist/vue-haystack.cjs.js",
-    "import": "./dist/vue-haystack.es.js"
+    ".": {
+      "require": "./dist/vue-haystack.cjs.js",
+      "import": "./dist/vue-haystack.es.js"
+    },
+    "./style.css": "./dist/style.css"
   },
   "main": "dist/vue-haystack.es.js",
   "module": "dist/vue-haystack.cjs.js",

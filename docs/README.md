@@ -35,5 +35,5 @@ npm i vue-haystack
 Import the styles (e.g. in your `App.vue`):
 
 ```ts
-import "vue-haystack/dist/style.css";
+import "vue-haystack/style.css";
 ```

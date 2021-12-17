@@ -11,7 +11,7 @@ export interface ItemBase<OptionsType> {
   /** The props that are passed to the component */
   props: ComponentPropsOptions | null;
   /** The props that are passed to the component */
-  listeners: { [key: string]: (...params: never) => never };
+  listeners: { [key: string]: (...params: any[]) => unknown };
   options: OptionsType | null;
 }
 
@@ -45,7 +45,7 @@ export const createItemStoreInstance = <
   const push = <T extends ComponentBaseType>(
     component: T,
     props?: InstanceType<T>["$props"],
-    listeners?: InstanceType<T>["$emits"],
+    listeners?: ItemBase<O>["listeners"],
     options?: I["options"],
   ) => {
     const { item, useReturn } = createItem({
@@ -65,11 +65,15 @@ export const createItemStoreInstance = <
    * @param props Props to pass to the component
    * @param options Additional options to configure the item behavior
    */
-  const pushDefault = (props: InstanceType<CBase>["$props"] | null = null, options?: I["options"]) => {
+  const pushDefault = (
+    props: InstanceType<CBase>["$props"] | null = null,
+    listeners?: ItemBase<O>["listeners"],
+    options?: I["options"],
+  ) => {
     if (!defaultComponent) {
       throw new Error("No default component passed to the item store, cannot show item.");
     }
-    return push(defaultComponent, props, options);
+    return push(defaultComponent, props, listeners, options);
   };
 
   const rawStore = {
