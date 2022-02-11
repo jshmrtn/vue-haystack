@@ -3,13 +3,31 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="generator" content="VuePress 2.0.0-beta.27">
+    <meta name="generator" content="VuePress 2.0.0-beta.35">
+    <style>
+      :root {
+        --c-bg: #fff;
+      }
+      html.dark {
+        --c-bg: #22272e;
+      }
+      html, body {
+        background-color: var(--c-bg);
+      }
+    </style>
+    <script>
+      const userMode = localStorage.getItem('vuepress-color-scheme');
+			const systemDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+			if (userMode === 'dark' || (userMode !== 'light' && systemDarkMode)) {
+				document.documentElement.classList.toggle('dark', true);
+			}
+    </script>
     <title>Vue Haystack 🧱</title><meta name="description" content="">
-    <link rel="modulepreload" href="/vue-haystack/assets/app.5123f763.js"><link rel="modulepreload" href="/vue-haystack/assets/404.html.cd4602b7.js"><link rel="modulepreload" href="/vue-haystack/assets/404.html.4f8e6760.js">
-    <link rel="stylesheet" href="/vue-haystack/assets/style.4e46acaf.css">
+    <link rel="modulepreload" href="/vue-haystack/assets/app.c19a50ff.js"><link rel="modulepreload" href="/vue-haystack/assets/404.html.0191d978.js"><link rel="modulepreload" href="/vue-haystack/assets/404.html.b1373ab9.js">
+    <link rel="stylesheet" href="/vue-haystack/assets/style.0a6c65d8.css">
   </head>
   <body>
-    <div id="app"><!--[--><div class="theme-container"><div class="theme-default-content"><h1>404</h1><blockquote>Looks like we&#39;ve got some broken links.</blockquote><a href="/vue-haystack/" class="">Take me home</a></div></div><!----><!--]--></div>
-    <script type="module" src="/vue-haystack/assets/app.5123f763.js" defer></script>
+    <div id="app"><!--[--><div class="theme-container"><div class="theme-default-content"><h1>404</h1><blockquote>That&#39;s a Four-Oh-Four.</blockquote><a href="/vue-haystack/" class="">Take me home</a></div></div><!----><!--]--></div>
+    <script type="module" src="/vue-haystack/assets/app.c19a50ff.js" defer></script>
   </body>
 </html>
