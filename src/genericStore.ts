@@ -16,7 +16,6 @@ export interface ItemBase<OptionsType> {
 }
 
 export const createItemStoreInstance = <
-  CBase extends ComponentBaseType,
   I extends ItemBase<O>,
   Res extends { [key: string]: unknown },
   O extends { [key: string]: unknown } | null,
@@ -24,7 +23,6 @@ export const createItemStoreInstance = <
 >(
   createItem: (item: ItemBase<O>) => { item: I; useReturn: Res },
   extendStore: (items: Ref<I[]>) => Extend = () => ({} as Extend),
-  defaultComponent?: CBase,
 ) => {
   const items = ref<I[]>([]) as Ref<I[]>;
 
