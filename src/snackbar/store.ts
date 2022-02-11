@@ -45,11 +45,17 @@ export const snackTimer = (callback: () => void, duration: number = 0, updateInt
   resume();
 
   return {
+    /** stop/reset the timer */
     clear,
+    /** pause the timer */
     pause,
+    /** resume the timer */
     resume,
+    /** remaining lifetime */
     remainingTime,
+    /** lifetime progress value counting from 1 to 0 */
     progress,
+    /** total duration */
     duration,
   };
 };
@@ -62,7 +68,7 @@ const store = createItemStoreInstance(
     });
 
     const options = {
-      time: 0, // TODO: default options
+      time: 0,
       ...base.options,
     } as {
       time?: number;
@@ -93,7 +99,11 @@ const store = createItemStoreInstance(
     };
   },
   (_items) => {
-    return {};
+    return {
+      log: () => {
+        console.log(_items);
+      },
+    };
   },
 );
 

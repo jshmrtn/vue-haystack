@@ -7,33 +7,22 @@ export default defineUserConfig<DefaultThemeOptions>({
   port: 3000,
   lang: "en-US",
   title: "Vue Haystack 🧱",
-  bundler: "@vuepress/vite",
+  bundler: "@vuepress/bundler-vite",
   clientAppEnhanceFiles: [path.resolve(__dirname, "./enhanceAppFile.ts")],
+  plugins: ["@vuepress/plugin-search"],
   themeConfig: {
     repo: "https://github.com/jshmrtn/vue-haystack",
-    navbar: [],
+    navbar: [{ text: "npm", link: "https://npmjs.com/package/vue-haystack" }],
     locales: {
       "/": {
         selectLanguageName: "English",
       },
     },
-    sidebar: [
-      {
-        text: "Home",
-        link: "/README.md",
-      },
-      {
-        text: "Modals",
-        link: "/modal.md",
-      },
-      {
-        text: "Snackbar",
-        link: "/snackbar.md",
-      },
-      {
-        text: "Generic store",
-        link: "/generic.md",
-      },
-    ],
+    displayAllHeaders: true,
+    sidebarDepth: 3,
+    sidebar: ["/setup.md", "/modal.md", "/snackbar.md", "/generic.md"],
+    editLink: false,
+    contributors: false,
+    lastUpdated: false,
   },
 });

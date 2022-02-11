@@ -9,7 +9,7 @@ actions:
   - text: Snackbar
     link: /snackbar
     type: primary
-  - text: Generic store
+  - text: Custom stores
     link: /generic
     type: primary
 features:
@@ -18,13 +18,9 @@ features:
   - title: Flexible
     details: Use your own components and maintain full control over the looks and functionality of your system.
   - title: Extensible
-    details: A generic store allows you to easily implement your own systems
+    details: A custom store allows you to easily implement your own systems
 footer: MIT Licensed | Copyright © 2021-present JOSHMARTIN GmbH
 ---
-
-<div class="alert">
-This is an early version, only the modal system is ready to use and documented
-</div>
 
 ## Installation
 

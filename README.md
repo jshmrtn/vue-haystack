@@ -2,4 +2,16 @@
 
 Lightweight and flexible system for modal dialogs, snackbars, toasts, ...
 
-## [Docs](https://jshmrtn.github.io/vue-haystack/)
+[Documentation and Demos](https://jshmrtn.github.io/vue-haystack/)
+
+## Installation
+
+```sh
+npm i vue-haystack
+```
+
+Import the styles (e.g. in your `App.vue`):
+
+```ts
+import "vue-haystack/style.css";
+```

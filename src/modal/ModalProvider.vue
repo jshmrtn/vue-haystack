@@ -1,6 +1,6 @@
 <template>
   <div>
-    <slot :modal="item" />
+    <slot :modal="modal" />
   </div>
 </template>
 
@@ -18,8 +18,8 @@ export default defineComponent({
     },
   },
   setup: (props) => {
-    const item = provideModal(props.modal);
-    return { item };
+    provideModal(props.modal);
+    return {};
   },
 });
 </script>

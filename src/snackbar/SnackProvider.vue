@@ -1,16 +1,15 @@
 <template>
   <div>
-    <slot :snack="item" />
+    <slot :snack="snack" />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { provideSnack } from ".";
-import { useSnack } from "./store";
+import { provideSnack, useSnack } from "./store";
 
 export default defineComponent({
-  name: "ModalProvider",
+  name: "SnackProvider",
   components: {},
   props: {
     snack: {
@@ -19,8 +18,8 @@ export default defineComponent({
     },
   },
   setup: (props) => {
-    const item = provideSnack(props.snack);
-    return { item };
+    provideSnack(props.snack);
+    return {};
   },
 });
 </script>
