@@ -42,8 +42,8 @@
   // ----------------------------------------
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.organizeImports": true
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "explicit"
   },
   // ----------------------------------------
   // VOLAR
@@ -57,5 +57,8 @@
   "volar.completion.preferredTagNameCase": "auto",
   "volar.completion.preferredAttrNameCase": "auto-kebab",
   "volar-api.trace.server": "verbose",
-  "volar-document.trace.server": "verbose"
+  "volar-document.trace.server": "verbose",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

@@ -22,7 +22,7 @@ export const createItemStoreInstance = <
   Extend extends { [key: string]: unknown },
 >(
   createItem: (item: ItemBase<O>) => { item: I; useReturn: Res },
-  extendStore: (items: Ref<I[]>) => Extend = () => ({} as Extend),
+  extendStore: (items: Ref<I[]>) => Extend = () => ({}) as Extend,
 ) => {
   const items = ref<I[]>([]) as Ref<I[]>;
 
